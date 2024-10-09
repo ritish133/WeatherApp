@@ -95,12 +95,12 @@ function renderWeatherInfo(weatherInfo){
     //fetching data dynamically
     cityName.innerText=weatherInfo?.name;
     countryIcon.src=`https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
-    description.innerText = weatherInfo?.weather?.[0]?.description;
+    description.innerText = weatherInfo?.weather?.[0]?.description.toUpperCase();
     weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-    temp.innerText=weatherInfo?.main?.temp;
-    windspeed.innerText=weatherInfo?.wind?.speed;
-    humidity.innerText=weatherInfo?.main?.humidity;
-    cloudiness.innerText=weatherInfo?.clouds?.all;
+    temp.innerText=`${weatherInfo?.main?.temp} °C`;
+    windspeed.innerText=`${weatherInfo?.wind?.speed} m/s`;
+    humidity.innerText=`${weatherInfo?.main?.humidity}%`;
+    cloudiness.innerText=`${weatherInfo?.clouds?.all}%`;
 }
 
 function getLocation(){
